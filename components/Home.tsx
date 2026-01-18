@@ -11,8 +11,8 @@ interface Skill {
 const skills: Skill[] = [
   { name: "Elixir", iconClass: "devicon-elixir-plain colored" },
   { name: "Phoenix", iconClass: "devicon-phoenix-original colored" },
-  { name: "AWS", iconClass: "devicon-amazonwebservices-plain" },
-  { name: "PostgreSQL", iconClass: "devicon-postgresql-plain" },
+  { name: "AWS", iconClass: "devicon-amazonwebservices-plain colored" },
+  { name: "PostgreSQL", iconClass: "devicon-postgresql-plain colored" },
   { name: "Redis", iconClass: "devicon-redis-plain colored" },
   { name: "Java", iconClass: "devicon-java-plain colored" },
   { name: "PHP", iconClass: "devicon-php-plain colored" }
@@ -65,9 +65,8 @@ export default function Home() {
 
   // Update these with your own social links
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, href: "https://github.com/yourusername" },
-    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/yourprofile" },
-    { icon: <Mail className="w-6 h-6" />, href: "mailto:your.email@example.com" },
+    { icon: <Github className="w-6 h-6" />, href: "https://github.com/eceyenmez" },
+    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/eceyenmez" }
   ];
 
   const MotionedLink = motion.create(Link);
