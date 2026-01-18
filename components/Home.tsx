@@ -3,25 +3,19 @@ import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Github, Linkedin, Mail } from "lucide-react";
-import Image from "next/image";
-import mongodbIcon from "@/public/svgs/mongodb.svg";
-import gitIcon from "@/public/svgs/git.svg";
-import postgresIcon from "@/public/svgs/postgres.svg";
-
 interface Skill {
   name: string;
-  icon: any | null;
+  iconClass: string | null;
 }
 
 const skills: Skill[] = [
-  { name: "Elixir", icon: null },
-  { name: "Phoenix", icon: null },
-  { name: "AWS", icon: null },
-  { name: "PostgreSQL", icon: postgresIcon },
-  { name: "MongoDB", icon: mongodbIcon },
-  { name: "Java", icon: null },
-  { name: "PHP", icon: null },
-  { name: "Git", icon: gitIcon },
+  { name: "Elixir", iconClass: "devicon-elixir-plain colored" },
+  { name: "Phoenix", iconClass: "devicon-phoenix-original colored" },
+  { name: "AWS", iconClass: "devicon-amazonwebservices-plain" },
+  { name: "PostgreSQL", iconClass: "devicon-postgresql-plain" },
+  { name: "Redis", iconClass: "devicon-redis-plain colored" },
+  { name: "Java", iconClass: "devicon-java-plain colored" },
+  { name: "PHP", iconClass: "devicon-php-plain colored" }
 ];
 
 export default function Home() {
@@ -71,8 +65,8 @@ export default function Home() {
 
   // Update these with your own social links
   const socialLinks = [
-    { icon: <Github className="w-6 h-6" />, href: "https://github.com/eceyenmez" },
-    { icon: <Linkedin className="w-6 h-6" />, href: "https://linkedin.com/in/eceyenmez" },
+    { icon: <Github className="w-6 h-6" />, href: "https://github.com/yourusername" },
+    { icon: <Linkedin className="w-6 h-6" />, href: "https://www.linkedin.com/in/yourprofile" },
     { icon: <Mail className="w-6 h-6" />, href: "mailto:your.email@example.com" },
   ];
 
@@ -184,6 +178,18 @@ export default function Home() {
               </MotionedLink>
             ))}
           </motion.div>
+
+          <motion.div
+            variants={item}
+            className="pointer-events-auto flex justify-center lg:justify-start"
+          >
+            <MotionedLink
+              href="/projects"
+              className="inline-flex items-center justify-center px-4 sm:px-5 md:px-6 py-2 sm:py-2.5 md:py-3 rounded-full bg-gradient-to-r from-red-700 to-purple-900 text-white font-medium hover:opacity-90 transition-opacity text-xs sm:text-sm md:text-base"
+            >
+              See my projects
+            </MotionedLink>
+          </motion.div>
         </motion.div>
 
         {/* Right Column - Animated Code Block */}
@@ -201,7 +207,7 @@ export default function Home() {
               <code className="font-mono whitespace-pre-wrap break-words">
                 <span className="text-yellow-400">developer</span> = <span className="text-purple-400">%</span>{"{"}
                 <br />
-                {"  "}<span className="text-blue-400">name:</span> <span className="text-green-400">{"\"Ece Ilayda Yenmez\""}</span>,
+                {"  "}<span className="text-blue-400">name:</span> <span className="text-green-400">{"\"Ece Y.\""}</span>,
                 <br />
                 {"  "}<span className="text-blue-400">role:</span> <span className="text-green-400">{"\"Backend Developer\""}</span>,
                 <br />
@@ -211,17 +217,10 @@ export default function Home() {
                     <br />
                     {"    "}<span className="text-green-400">{`"${skill.name}"`}</span>
                     {index !== skills.length - 1 && ","}
-                    {skill.icon && (
-                      <Image
-                        src={skill.icon}
-                        alt={`${skill.name} icon`}
-                        width={14}
-                        height={14}
-                        className="inline-block ml-2 -translate-y-0.5"
-                      />
-                    )}
-                    {!skill.icon && (
-                      <span className="inline-block ml-2 text-blue-400">⚙️</span>
+                    {skill.iconClass ? (
+                      <i className={`${skill.iconClass} inline-block ml-2 text-[18px] align-middle`} style={{ fontSize: '18px', verticalAlign: 'middle' }}></i>
+                    ) : (
+                      <span className="inline-block ml-2 text-blue-400 align-middle">⚙️</span>
                     )}
                   </React.Fragment>
                 ))}

@@ -3,7 +3,7 @@ import "./globals.css";
 import BackgroundParticles from "@/components/particles/BackgroundParticles";
 
 export const metadata: Metadata = {
-  title: "Home Page",
+  title: "Bos Yapiyorum",
   description: "Personal portfolio home page",
 };
 
@@ -14,6 +14,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+      </head>
       <body className="min-h-screen bg-background text-foreground relative">
         <div
           aria-hidden

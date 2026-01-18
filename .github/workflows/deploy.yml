@@ -32,33 +32,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
       
-      # 🔧 Build your site. Ensure this writes to ./out
-      # If your framework outputs to a different dir (e.g., dist),
-      # update the next steps to use that path.
       - name: Build
         run: npm run build
 
-      # ✅ Ensure the output directory exists (defensive)
       - name: Ensure output directory exists
         run: mkdir -p out
 
-      # 🚫 Prevent GitHub Pages from running Jekyll
       - name: Add .nojekyll to output
         run: touch out/.nojekyll
 
-      # 🌐 Set custom domain to ece.dev
       - name: Add CNAME file
         run: echo "ece.dev" > out/CNAME
 
-      # 🔍 Optional: Verify contents before upload
       - name: List output files
         run: ls -la out
 
-      # 🧩 Configure Pages
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
-      # 📦 Upload the site artifact
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
