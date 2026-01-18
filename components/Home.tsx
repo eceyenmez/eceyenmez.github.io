@@ -86,8 +86,9 @@ export default function Home() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
+        {/* Mobile: Simplified with less blur, Desktop: Full animation */}
         <motion.div
-          className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-700/20 via-transparent to-purple-900/20 rounded-full blur-3xl"
+          className="absolute -top-1/2 -left-1/2 w-full h-full bg-gradient-to-br from-red-700/20 via-transparent to-purple-900/20 rounded-full blur-xl md:blur-3xl"
           animate={{
             x: [0, 100, 0],
             y: [0, 100, 0],
@@ -100,7 +101,7 @@ export default function Home() {
           }}
         />
         <motion.div
-          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-900/20 via-transparent to-red-700/20 rounded-full blur-3xl"
+          className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-gradient-to-tl from-purple-900/20 via-transparent to-red-700/20 rounded-full blur-xl md:blur-3xl"
           animate={{
             x: [0, -100, 0],
             y: [0, -100, 0],
@@ -112,8 +113,9 @@ export default function Home() {
             ease: "easeInOut",
           }}
         />
+        {/* Hide third blob on mobile for better performance */}
         <motion.div
-          className="absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-red-700/10 via-purple-900/10 to-red-700/10 rounded-full blur-3xl"
+          className="hidden md:block absolute top-1/4 left-1/4 w-1/2 h-1/2 bg-gradient-to-r from-red-700/10 via-purple-900/10 to-red-700/10 rounded-full blur-xl"
           animate={{
             rotate: [0, 360],
             scale: [1, 1.3, 1],
