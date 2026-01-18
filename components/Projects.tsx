@@ -9,15 +9,13 @@ interface Project {
   description: string;
   technologies: string[];
   githubUrl?: string;
-  gameUrl?: string; // Link to the game/app store
-  liveUrl?: string; // Link to demo or website
+  gameUrl?: string;
+  liveUrl?: string;
   highlights?: string[];
-  company?: string; // Company you worked for (if applicable)
-  isElixir?: boolean; // Highlight Elixir projects
-  isCurrent?: boolean; // Currently working on this
+  company?: string;
+  isCurrent?: boolean;
 }
 
-// TODO: Add your actual projects here
 const projects: Project[] = [
   {
     name: "Junes Journey",
@@ -25,8 +23,7 @@ const projects: Project[] = [
     technologies: ["Elixir", "Phoenix", "PostgreSQL", "Redis", "AWS"],
     gameUrl: "https://www.junesjourney.com/",
     company: "Wooga",
-    isElixir: true, // Highlights Elixir projects
-    isCurrent: true, // Shows "Current" badge
+    isCurrent: true,
     highlights: ["Asynchronous cooperative features", "Developing new features and maintaining existing systems"]
   },
   {
@@ -35,8 +32,6 @@ const projects: Project[] = [
     technologies: ["PHP", "Java"],
     gameUrl: "https://www.governorofpoker.com/games/governor-of-poker-3",
     company: "Playtika",
-    isElixir: false,
-    isCurrent: false,
     highlights: [
       "Admin and backoffice systems for game operations",
       "Developing new features and maintaining existing systems"
@@ -46,10 +41,8 @@ const projects: Project[] = [
     name: "101 Okey Plus",
     description: "Worked on game and web backend services for a turn-based multiplayer mobile game using PHP, Java, and Spring Boot",
     technologies: ["PHP", "Java", "Spring Boot", "MySQL", "Redis", "AWS"],
-    company: "Peak / Zynga",
+    company: "Zynga",
     gameUrl: "https://www.zynga.com/games/101-okey-plus/",
-    isElixir: false,
-    isCurrent: false,
     highlights: [
       "Game and web services supporting turn-based multiplayer gameplay",
       "Developing new features and maintaining existing backend services"
@@ -93,10 +86,13 @@ export default function Projects() {
             Back to home
           </MotionedLink>
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
-            My Projects
+            Professional Experience
           </h1>
-          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl">
-            A collection of backend systems and game infrastructure projects I've worked on. Currently building with <span className="text-foreground font-medium">Elixir & Phoenix</span>
+          <p className="text-muted-foreground text-sm sm:text-base md:text-lg max-w-2xl mb-6">
+            Backend developer specializing in game infrastructure and scalable systems. Experienced in building and maintaining high-performance backends for mobile games, handling real-time multiplayer features, and ensuring system reliability at scale.
+          </p>
+          <p className="text-muted-foreground text-xs sm:text-sm max-w-2xl">
+            Currently working with <span className="text-foreground font-medium">Elixir & Phoenix</span>
           </p>
         </motion.div>
 
@@ -113,11 +109,6 @@ export default function Projects() {
                   <div className="flex-1">
                     <div className="flex items-center gap-2 flex-wrap">
                       <h3 className="text-xl font-semibold">{project.name}</h3>
-                      {project.isElixir && (
-                        <span className="text-xs px-2 py-0.5 rounded-full bg-purple-900/30 text-purple-300 border border-purple-700/50">
-                          Elixir
-                        </span>
-                      )}
                       {project.isCurrent && (
                         <span className="text-xs px-2 py-0.5 rounded-full bg-green-900/30 text-green-300 border border-green-700/50">
                           Current
